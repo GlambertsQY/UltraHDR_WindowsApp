@@ -1,0 +1,32 @@
+# Build output
+.vs/
+bin/
+obj/
+x64/
+Debug/
+Release/
+ipch/
+TestResults/
+
+# NuGet
+packages/
+*.nupkg
+
+# User files
+*.user
+*.suo
+*.VC.db
+*.opendb
+*.VC.VC.opendb
+*.vcxproj.user
+
+# Logs and caches
+*.log
+*.tmp
+
+# Generated files
+Generated Files/
+
+# System files
+Thumbs.db
+Desktop.ini
