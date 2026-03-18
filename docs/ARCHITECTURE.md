@@ -75,15 +75,15 @@ Current state:
 ## Planned data flow
 
 1. User opens an image from the WinUI shell
-2. Image layer decodes SDR or Ultra HDR content
-3. Decoded image data is uploaded to the active backend
+2. Image layer probes metadata immediately and then decodes SDR or Ultra HDR content
+3. Decoded image data is uploaded to the active backend (currently a software preview path inside the Vulkan scaffold)
 4. Backend renders into the child `HWND`
 5. Inspector panel shows metadata and HDR state
 
 ## Near-term roadmap
 
 1. Real Vulkan initialization
-2. Standard image loading path
+2. Replace the software preview with real Vulkan texture upload and visible presentation
 3. `libultrahdr` integration
 4. HDR capability detection
 5. Tone mapping and presentation policy

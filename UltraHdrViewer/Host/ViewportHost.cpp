@@ -90,6 +90,14 @@ namespace UltraHdrViewer::Host
         }
     }
 
+    void ViewportHost::Invalidate()
+    {
+        if (m_hwnd)
+        {
+            InvalidateRect(m_hwnd, nullptr, FALSE);
+        }
+    }
+
     std::wstring ViewportHost::Describe() const
     {
         if (!m_hwnd)
@@ -154,24 +162,15 @@ namespace UltraHdrViewer::Host
             RECT client{};
             GetClientRect(m_hwnd, &client);
 
-            HBRUSH fillBrush = CreateSolidBrush(RGB(7, 11, 16));
-            FillRect(dc, &client, fillBrush);
-            DeleteObject(fillBrush);
-
-            SetBkMode(dc, TRANSPARENT);
-            SetTextColor(dc, RGB(216, 229, 237));
-
-            std::wstring title = L"Native Vulkan viewport host";
-            DrawTextW(dc, title.c_str(), static_cast<int>(title.size()), &client, DT_CENTER | DT_VCENTER | DT_SINGLELINE);
-
-            RECT footer = client;
-            footer.top += 36;
-            std::wstring subtitle = m_backend ? std::wstring(m_backend->Name()) : L"No backend";
-            DrawTextW(dc, subtitle.c_str(), static_cast<int>(subtitle.size()), &footer, DT_CENTER | DT_TOP | DT_SINGLELINE);
-
             if (m_backend)
             {
-                m_backend->Render();
+                m_backend->Render(dc, client);
+            }
+            else
+            {
+                HBRUSH fillBrush = CreateSolidBrush(RGB(7, 11, 16));
+                FillRect(dc, &client, fillBrush);
+                DeleteObject(fillBrush);
             }
 
             EndPaint(m_hwnd, &paint);

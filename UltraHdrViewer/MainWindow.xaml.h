@@ -13,7 +13,6 @@ namespace winrt::UltraHdrViewer::implementation
     struct MainWindow : MainWindowT<MainWindow>
     {
         MainWindow();
-        void InitializeViewportHost();
 
         void OnOpenClicked(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& args);
         void OnFitClicked(Windows::Foundation::IInspectable const& sender, Microsoft::UI::Xaml::RoutedEventArgs const& args);

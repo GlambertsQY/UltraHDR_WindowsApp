@@ -59,6 +59,9 @@
                             <TextBlock Text="Session" FontWeight="SemiBold" />
                             <TextBlock x:Name="SessionStatusText" Text="No image loaded" Foreground="#C9D6DE" />
                             <TextBlock x:Name="DisplayStatusText" Text="HDR capability detection not wired yet" Foreground="#C9D6DE" TextWrapping="WrapWholeWords" />
+                            <TextBlock x:Name="ImagePathText" Text="File: none" Foreground="#C9D6DE" TextWrapping="WrapWholeWords" />
+                            <TextBlock x:Name="PixelDimensionsText" Text="Dimensions: unknown" Foreground="#C9D6DE" />
+                            <TextBlock x:Name="PixelFormatText" Text="Pixel format: unknown" Foreground="#C9D6DE" TextWrapping="WrapWholeWords" />
                         </StackPanel>
                     </Border>
 

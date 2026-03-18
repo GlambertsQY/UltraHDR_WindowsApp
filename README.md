@@ -16,6 +16,8 @@
 - Main window layout includes command bar, viewport area, inspector panel, and status bar
 - Native child `HWND` viewport host is created and synchronized with XAML layout
 - Renderer abstraction is in place with `Vulkan` and `OpenGL` placeholder backends
+- Desktop file picker is wired and basic image metadata probing works for common image files
+- The viewport can now show a software-scaled preview image while the real Vulkan path is still under construction
 - Build artifacts such as generated XAML glue, PRI, and bootstrap runtime files are emitted correctly
 
 ## Project layout
@@ -57,14 +59,14 @@ More detail is documented in `docs/ARCHITECTURE.md`.
 ## Current limitations
 
 - No real Vulkan swapchain yet; the backend is still a stub
-- No file picker or image decoding yet
+- No real Vulkan texture upload or swapchain presentation yet; current image preview uses a software fallback inside the scaffold backend
 - No `libultrahdr` integration yet
 - No HDR capability probing or tone mapping path yet
 
 ## Next steps
 
 1. Replace the Vulkan stub with real instance, surface, and swapchain setup
-2. Add file open flow and standard image loading
+2. Replace the software preview path with real Vulkan texture upload and presentation
 3. Integrate `libultrahdr`
 4. Add HDR display capability detection and SDR fallback logic
 

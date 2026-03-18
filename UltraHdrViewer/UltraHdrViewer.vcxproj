@@ -31,6 +31,7 @@
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
     <DesktopCompatible>true</DesktopCompatible>
     <UseWinUI>true</UseWinUI>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
     <AppxPackage>false</AppxPackage>
     <WindowsPackageType>None</WindowsPackageType>
     <EnableMsixTooling>false</EnableMsixTooling>
@@ -93,7 +94,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>comdlg32.lib;gdi32.lib;windowscodecs.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
 
@@ -116,7 +117,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>comdlg32.lib;gdi32.lib;windowscodecs.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
 
@@ -136,6 +137,7 @@
     <ClInclude Include="App.xaml.h" />
     <ClInclude Include="MainWindow.xaml.h" />
     <ClInclude Include="Core\AppState.h" />
+    <ClInclude Include="Core\StartupLogger.h" />
     <ClInclude Include="Host\ViewportHost.h" />
     <ClInclude Include="Renderer\IRenderBackend.h" />
     <ClInclude Include="Renderer\OpenGLBackend.h" />
@@ -149,6 +151,7 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="Core\StartupLogger.cpp" />
     <ClCompile Include="MainWindow.xaml.cpp" />
     <ClCompile Include="Host\ViewportHost.cpp" />
     <ClCompile Include="Renderer\OpenGLBackend.cpp" />

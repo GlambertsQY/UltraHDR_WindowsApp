@@ -17,6 +17,7 @@ namespace UltraHdrViewer::Host
         bool Create(HWND parentHwnd, UltraHdrViewer::Renderer::IRenderBackend* backend);
         void Destroy();
         void SetBounds(RECT bounds);
+        void Invalidate();
         std::wstring Describe() const;
 
     private:
